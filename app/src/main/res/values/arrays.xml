@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="categories">
+        <item>Food &amp; Drink</item>
+        <item>Religious</item>
+        <item>Shopping</item>
+        <item>Health</item>
+        <item>Animals</item>
+        <item>Household</item>
+        <item>Leisure</item>
+        <item>Entertainment</item>
+        <item>Travel</item>
+        <item>Money</item>
+        <item>Motoring</item>
+        <item>Fashion</item>
+        <item>Law &amp; Civil</item>
+        <item>Academic</item>
+    </array>
+    <array name="categories_0">
+        <item>bar</item>
+        <item>restaurant</item>
+        <item>cafe</item>
+        <item>meal_delivery</item>
+        <item>meal_takeaway</item>
+    </array>
+    <array name="categories_1">
+        <item>church</item>
+        <item>mosque</item>
+        <item>hindu_temple</item>
+        <item>synagogue</item>
+        <item>funeral_home</item>
+        <item>cemetery</item>
+    </array>
+    <array name="categories_2">
+        <item>bakery</item>
+        <item>book_store</item>
+        <item>convenience_store</item>
+        <item>clothing_store</item>
+        <item>department_store</item>
+        <item>electronics_store</item>
+        <item>florist</item>
+        <item>furniture_store</item>
+        <item>hardware_store</item>
+        <item>home_goods_store</item>
+        <item>jewelry_store</item>
+        <item>liquor_store</item>
+        <item>shoe_store</item>
+        <item>shopping_mall</item>
+        <item>store</item>
+    </array>
+    <array name="categories_3">
+        <item>gym</item>
+        <item>physiotherapist</item>
+        <item>doctor</item>
+        <item>dentist</item>
+        <item>pharmacy</item>
+        <item>hospital</item>
+    </array>
+    <array name="categories_4">
+        <item>aquarium</item>
+        <item>pet_store</item>
+        <item>veterinary_care</item>
+        <item>zoo</item>
+    </array>
+    <array name="categories_5">
+        <item>furniture_store</item>
+        <item>home_goods_store</item>
+        <item>electrician</item>
+        <item>plumber</item>
+        <item>locksmith</item>
+        <item>painter</item>
+        <item>roofing_contractor</item>
+        <item>storage</item>
+        <item>moving_company</item>
+        <item>post_office</item>
+        <item>laundry</item>
+    </array>
+    <array name="categories_6">
+        <item>amusement_park</item>
+        <item>bowling_alley</item>
+        <item>night_club</item>
+        <item>park</item>
+        <item>campground</item>
+        <item>rv_park</item>
+        <item>art_gallery</item>
+        <item>museum</item>
+        <item>bicycle_store</item>
+    </array>
+    <array name="categories_7">
+        <item>bar</item>
+        <item>casino</item>
+        <item>night_club</item>
+        <item>movie_rental</item>
+        <item>movie_theater</item>
+        <item>stadium</item>
+    </array>
+    <array name="categories_8">
+    <item>airport</item>
+        <item>bus_station</item>
+        <item>subway_station</item>
+        <item>taxi_stand</item>
+        <item>train_station</item>
+        <item>light_rail_station</item>
+        <item>travel_agency</item>
+        <item>lodging</item>
+</array>
+    <array name="categories_9">
+        <item>atm</item>
+        <item>accounting</item>
+        <item>bank</item>
+        <item>casino</item>
+        <item>insurance_agency</item>
+        <item>real_estate_agency</item>
+    </array>
+    <array name="categories_10">
+        <item>car_dealer</item>
+        <item>car_rental</item>
+        <item>car_repair</item>
+        <item>car_wash</item>
+        <item>gas_station</item>
+        <item>parking</item>
+    </array>
+    <array name="categories_11">
+        <item>beauty_salon</item>
+        <item>hair_care</item>
+        <item>spa</item>
+        <item>clothing_store</item>
+        <item>jewelry_store</item>
+        <item>shoe_store</item>
+    </array>
+    <array name="categories_12">
+        <item>city_hall</item>
+        <item>courthouse</item>
+        <item>embassy</item>
+        <item>fire_station</item>
+        <item>lawyer</item>
+        <item>local_government_office</item>
+        <item>police</item>
+    </array>
+    <array name="categories_13">
+        <item>school</item>
+        <item>library</item>
+        <item>university</item>
+    </array>
+</resources>
