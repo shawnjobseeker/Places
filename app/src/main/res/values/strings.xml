@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">UdacityExamples</string>
-    <string name="error_api">Error retrieving request for tab %1$s :</string>
+    <string name="error_api">Error retrieving request for tab %1$s : %2$s</string>
+    <string name="connection_failed">Connection failed: %1$s</string>
+    <string name="network_lost">Connection suspended: network lost</string>
+    <string name="service_disconnected">Connection suspended: service disconnected</string>
     <string name="title_activity_nav">NavActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

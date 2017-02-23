@@ -12,11 +12,10 @@ import rx.Observable;
  */
 
 public interface ApiInterface {
-    String API_KEY = "AIzaSyAZmj1LRmj3oBlwu3-YLXu-UsCXQYK7wdI";
+    // Google Places Web API key
+    String API_KEY = "AIzaSyCuZqSTcaVrHTBlheIAr4FXpBu5hTyRiQg";
 
     @GET("place/nearbysearch/json")
     Observable<PlaceRequest> getPlaces(@Query("location") String location, @Query("radius") int radius, @Query("type") String type, @Query("keyword") String keyword, @Query("key") String apiKey);
-
-
 
 }

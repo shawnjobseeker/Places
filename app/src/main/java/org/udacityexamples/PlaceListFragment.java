@@ -58,7 +58,7 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
     @Override
     public void passResultSet(Set<Result> results, String statusMessage) {
         if (results.size() == 0)
-            Toast.makeText(getContext(), getString(R.string.error_api, title) + " " + statusMessage, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.error_api, title, statusMessage), Toast.LENGTH_SHORT).show();
         recyclerView.setAdapter(new PlaceListAdapter(results, this));
         Log.d("results", results.toString());
     }
@@ -69,7 +69,8 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
         Bundle args = new Bundle();
         PlaceCardFragment fragment = new PlaceCardFragment();
         args.putString("placeId", result.getPlaceId());
-        args.putBoolean("hours", result.getOpeningHours().getOpenNow());
+        if (result.getOpeningHours() != null)
+        args.putString("hours", (result.getOpeningHours().getOpenNow()) ? getString(R.string.open) : getString(R.string.closed));
         args.putInt("icon", getResources().getIdentifier(result.getIcon(), "drawable", getActivity().getPackageName()));
         fragment.setArguments(args);
         transaction.replace(R.id.activity_main, fragment, "detail");

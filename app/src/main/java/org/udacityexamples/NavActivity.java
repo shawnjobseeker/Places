@@ -2,6 +2,8 @@ package org.udacityexamples;
 
 import android.app.Activity;
 
+import android.location.Location;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -32,6 +34,9 @@ import android.widget.TextView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.location.FusedLocationProviderApi;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.PlaceLikelihoodBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
@@ -41,7 +46,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NavActivity extends AppCompatActivity
-        implements  GoogleApiClient.OnConnectionFailedListener,  BaseActivityInterface {
+        implements  GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,  BaseActivityInterface {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -52,7 +57,7 @@ public class NavActivity extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient;
     private ViewPager viewPager;
     private CategoryAdapter categoryAdapter;
-    private LatLng currentLocation;
+    private Location currentLocation;
     private List<String> categories;
     private DrawerLayout drawer;
     private Presenter presenter;
@@ -86,39 +91,49 @@ public class NavActivity extends AppCompatActivity
                 .Builder(this)
                 .addApi(Places.GEO_DATA_API)
                 .addApi(Places.PLACE_DETECTION_API)
+                .addApi(LocationServices.API)
                 .enableAutoManage(this, this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
                 .build();
         mGoogleApiClient.connect();
 
+
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
         try {
-            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-            startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
-        } catch (Exception ge) {
+            currentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+            categoryAdapter = new CategoryAdapter(getSupportFragmentManager(), getResources().getStringArray(R.array.categories));
+            viewPager = (ViewPager) findViewById(R.id.view_pager);
+            viewPager.setAdapter(categoryAdapter);
+            //startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
+        } catch (SecurityException ge) {
             ge.printStackTrace();
             onConnectionFailed(new ConnectionResult(ConnectionResult.NETWORK_ERROR));
         }
+
     }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        if (i == CAUSE_NETWORK_LOST)
+            Snackbar.make(findViewById(R.id.root), getString(R.string.network_lost), BaseTransientBottomBar.LENGTH_LONG).show();
+        else if (i == CAUSE_SERVICE_DISCONNECTED)
+            Snackbar.make(findViewById(R.id.root), getString(R.string.service_disconnected), BaseTransientBottomBar.LENGTH_LONG).show();
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
-        @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PLACE_PICKER_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                // set adapter AFTER location is determined
-                currentLocation = PlacePicker.getPlace(this, data).getLatLng();
-                //setup ViewPager
-                categoryAdapter = new CategoryAdapter(getSupportFragmentManager(), getResources().getStringArray(R.array.categories));
-                viewPager = (ViewPager) findViewById(R.id.view_pager);
-                viewPager.setAdapter(categoryAdapter);
 
-            }
-        }
-    }
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Snackbar.make(findViewById(R.id.root), "Connection failed", BaseTransientBottomBar.LENGTH_LONG).show();
+        Snackbar.make(findViewById(R.id.root), getString(R.string.connection_failed, connectionResult.getErrorMessage()), BaseTransientBottomBar.LENGTH_LONG).show();
     }
+
 
     @Override
     public void onDestroy() {
@@ -127,7 +142,7 @@ public class NavActivity extends AppCompatActivity
     }
 
     public LatLng getCurrentLocation() {
-        return currentLocation;
+        return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
     }
 
     @Override

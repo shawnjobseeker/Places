@@ -2,6 +2,7 @@ package org.udacityexamples;
 
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -16,6 +17,7 @@ import org.xml.sax.helpers.AttributeListImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Created by Shawn Li on 1/31/2017.
@@ -33,19 +35,33 @@ public class PhotoManager implements ResultCallback<PlacePhotoMetadataResult> {
     }
     @Override
     public void onResult(@NonNull PlacePhotoMetadataResult result) {
-        PlacePhotoMetadataBuffer buffer = result.getPhotoMetadata();
+       final  PlacePhotoMetadataBuffer buffer = result.getPhotoMetadata();
+        if (buffer == null) {
+            fragment.passPhoto(null);
+            return;
+        }
+        final AtomicBoolean photoPassed = new AtomicBoolean(false);
+        int count = buffer.getCount();
+        Log.d("photo", Integer.toString(count));
         for (int i = 0; i < buffer.getCount(); i++) {
-            PendingResult<PlacePhotoResult> photoResult = buffer.get(i).getPhoto(googleApiClient);
+
+            final PendingResult<PlacePhotoResult> photoResult = buffer.get(i).getPhoto(googleApiClient);
             photoResult.setResultCallback(new ResultCallback<PlacePhotoResult>() {
                 @Override
                 public void onResult(@NonNull PlacePhotoResult placePhotoResult) {
-                    if (placePhotoResult.getStatus().isSuccess())
-                        bitmaps.add(placePhotoResult.getBitmap());
+                    if (placePhotoResult.getStatus().isSuccess() && !photoPassed.get()) {
+
+                            photoPassed.set(true);
+                            if (fragment != null)
+                            fragment.passPhoto(placePhotoResult.getBitmap());
+
+                    }
+
                 }
             });
         }
-        fragment.passPhotos(bitmaps);
+        if (!photoPassed.get() && fragment != null)
+            fragment.passPhoto(null);
         buffer.release();
-
     }
 }

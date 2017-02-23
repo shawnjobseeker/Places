@@ -48,20 +48,23 @@ public class PlaceCardFragment extends Fragment  {
         Places.GeoDataApi.getPlaceById(activity.getClient(), getArguments().getString("placeId")).setResultCallback(new ResultCallback<PlaceBuffer>() {
             @Override
             public void onResult(@NonNull PlaceBuffer places) {
-                if (places.getStatus().isSuccess() && places.getCount() == 1) {
+                if (places.getStatus().isSuccess() && places.getCount() >= 1 && PlaceCardFragment.this.isVisible()) {
+                    int count = places.getCount();
                     Place place = places.get(0);
                     businessName.setText(place.getName());
                     address.setText(place.getAddress());
                     phone.setText(place.getPhoneNumber());
-                    website.setText(place.getWebsiteUri().toString());
-                    if (getArguments().getBoolean("hours")){
-                        hours.setText(getString(R.string.open));
+                    if (place.getWebsiteUri() != null)
+                        website.setText(place.getWebsiteUri().toString());
+                    else
+                        website.setText("N/A");
+                    String openClosed = getArguments().getString("hours");
+                    if (openClosed != null)
+                        hours.setText(openClosed);
+                    if (hours.getText().toString().equals(getString(R.string.open)))
                         hours.setTextColor(Color.YELLOW);
-                    }
-                    else {
-                        hours.setText(getString(R.string.closed));
+                    else
                         hours.setTextColor(Color.RED);
-                    }
                 }
                 places.release();
             }
@@ -69,11 +72,18 @@ public class PlaceCardFragment extends Fragment  {
         Places.GeoDataApi.getPlacePhotos(activity.getClient(), getArguments().getString("placeId") ).setResultCallback(new PhotoManager(activity.getClient(), this));
     }
 
-    public void passPhotos(List<Bitmap> images) {
+    public void passPhoto(Bitmap image) {
+        if (getView() == null)
+            return;
         ImageView photo = (ImageView) getView().findViewById(R.id.business_pic);
-        if (images != null && images.size() > 0)
-            photo.setImageBitmap(images.get(0));
-        else
+        if (image != null) {
+            photo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            photo.setImageBitmap(image);
+            photo.setPadding(0,0,0,0);
+        }
+        else {
             photo.setImageDrawable(ContextCompat.getDrawable(getContext(), getArguments().getInt("icon")));
+            photo.setPadding(4,4,4,4);
+        }
     }
 }
