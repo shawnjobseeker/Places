@@ -153,6 +153,8 @@ public class NavActivity extends AppCompatActivity
             transaction.remove(fragment);
             transaction.commit();
         }
+        else
+            super.onBackPressed();
     }
 
     @Override

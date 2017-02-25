@@ -18,6 +18,7 @@ import com.google.android.gms.location.places.Place;
 import org.udacityexamples.model.Result;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -31,8 +32,9 @@ import static org.udacityexamples.CategoryAdapter.FRAGMENT_TITLE;
 public class PlaceListFragment extends Fragment implements ListFragmentInterface {
 
     private RecyclerView recyclerView;
-    private int position;
+    private int position, resultIndex;
     private String title;
+    private List<Result> results;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -57,27 +59,57 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
 
     @Override
     public void passResultSet(Set<Result> results, String statusMessage) {
+        this.results = new LinkedList<>(results);
+        this.resultIndex = 0;
         if (results.size() == 0)
             Toast.makeText(getContext(), getString(R.string.error_api, title, statusMessage), Toast.LENGTH_SHORT).show();
         recyclerView.setAdapter(new PlaceListAdapter(results, this));
-        Log.d("results", results.toString());
     }
 
     @Override
     public void openPlaceCard(Result result) {
+        if (result == null)
+            return;
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
         PlaceCardFragment fragment = new PlaceCardFragment();
+        fragment.setListFragment(this);
         args.putString("placeId", result.getPlaceId());
         if (result.getOpeningHours() != null)
         args.putString("hours", (result.getOpeningHours().getOpenNow()) ? getString(R.string.open) : getString(R.string.closed));
         args.putInt("icon", getResources().getIdentifier(result.getIcon(), "drawable", getActivity().getPackageName()));
+        args.putStringArray("types", result.getTypes().toArray(new String[1]));
+        args.putString("name", result.getName());
+        args.putString("phone", result.getFormattedPhoneNumber());
+        args.putString("address", result.getVicinity());
+        args.putString("website", result.getWebsite());
         fragment.setArguments(args);
         transaction.replace(R.id.activity_main, fragment, "detail");
         transaction.show(fragment);
         transaction.commit();
     }
 
+    @Override
+    public Result getNextResult() {
+        if (resultIndex == results.size()) {
+            Toast.makeText(getContext(), getString(R.string.no_more_places), Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        else {
+            resultIndex += 1;
+            return results.get(resultIndex);
+        }
+    }
 
-
+    @Override
+    public Result getPreviousResult() {
+        if (resultIndex == 0) {
+            Toast.makeText(getContext(), getString(R.string.no_more_places), Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        else {
+            resultIndex -= 1;
+            return results.get(resultIndex);
+        }
+    }
 }

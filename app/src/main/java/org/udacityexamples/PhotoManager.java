@@ -41,8 +41,6 @@ public class PhotoManager implements ResultCallback<PlacePhotoMetadataResult> {
             return;
         }
         final AtomicBoolean photoPassed = new AtomicBoolean(false);
-        int count = buffer.getCount();
-        Log.d("photo", Integer.toString(count));
         for (int i = 0; i < buffer.getCount(); i++) {
 
             final PendingResult<PlacePhotoResult> photoResult = buffer.get(i).getPhoto(googleApiClient);

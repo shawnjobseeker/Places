@@ -9,4 +9,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="open">Open</string>
     <string name="closed">Closed</string>
+    <string name="categories">Categories: %1$s</string>
+    <string name="no_more_places">No more places</string>
 </resources>
