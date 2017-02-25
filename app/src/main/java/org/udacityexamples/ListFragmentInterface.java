@@ -1,12 +1,14 @@
 package org.udacityexamples;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.view.View;
 
 import org.udacityexamples.BaseActivityInterface;
 import org.udacityexamples.Presenter;
 import org.udacityexamples.model.Result;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,6 +22,11 @@ public interface ListFragmentInterface {
     void openPlaceCard(Result result);
     Result getNextResult();
     Result getPreviousResult();
+    void showResultsInMap();
+    Bitmap scaleBitmap(int resource, int height, int width);
+    void onMapModeChanged(boolean mapMode);
+    boolean getUserVisibleHint();
+   // void setTag(String tag);
 }
 
 /*

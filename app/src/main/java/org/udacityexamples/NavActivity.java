@@ -4,8 +4,10 @@ import android.app.Activity;
 
 import android.location.Location;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentManager;
@@ -40,31 +42,33 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.PlaceLikelihoodBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class NavActivity extends AppCompatActivity
-        implements  GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,  BaseActivityInterface {
+        implements  GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, BaseActivityInterface {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationView mNavigationView;
 
-    final int PLACE_PICKER_REQUEST = 1;
+    private boolean mapMode;
     private GoogleApiClient mGoogleApiClient;
     private ViewPager viewPager;
     private CategoryAdapter categoryAdapter;
     private Location currentLocation;
     private List<String> categories;
     private DrawerLayout drawer;
-    private Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
+        mapMode = false;
         categories = Arrays.asList(getResources().getStringArray(R.array.categories));
         // Set up the drawer.
         mNavigationView = (NavigationView)findViewById(R.id.navigation_view);
@@ -160,5 +164,22 @@ public class NavActivity extends AppCompatActivity
     @Override
     public GoogleApiClient getClient() {
         return mGoogleApiClient;
+    }
+
+
+    @Override
+    public void setMapMode(boolean mapMode) {
+        this.mapMode = mapMode;
+        // 3 fragments visible at once!
+       List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        for (Fragment fragment : fragments) {
+            if (fragment instanceof ListFragmentInterface && fragment.isVisible())
+                ((ListFragmentInterface)fragment).onMapModeChanged(mapMode);
+        }
+    }
+
+    @Override
+    public boolean isMapMode() {
+        return mapMode;
     }
 }

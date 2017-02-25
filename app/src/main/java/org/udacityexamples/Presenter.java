@@ -28,7 +28,6 @@ import static org.udacityexamples.connect.ApiInterface.API_KEY;
 public class Presenter {
 
     private ListFragmentInterface listFragment;
-    private PlaceCardFragment cardFragment;
     private ApiInterface api;
     private LatLng latLng;
 
@@ -36,9 +35,6 @@ public class Presenter {
         this.listFragment = fragment;
         this.latLng = latLng;
         api = ApiClient.getClient(fragment.getActivity().getApplication()).create(ApiInterface.class);
-    }
-    public void setLatLng(LatLng latLng) {
-        this.latLng = latLng;
     }
 
     public void observeMultipleCategories( String[] categories) {

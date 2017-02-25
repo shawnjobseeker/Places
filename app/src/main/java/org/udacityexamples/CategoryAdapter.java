@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
+import android.view.ViewGroup;
 
 /**
  * Created by Shawn Li on 2/18/2017.
@@ -16,6 +18,9 @@ public class CategoryAdapter extends FragmentStatePagerAdapter {
     private String[] array;
     @Override
     public Fragment getItem(int position) {
+
+        if (position < 0 || position >= array.length)
+            return null;
        PlaceListFragment fragment = new PlaceListFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(FRAGMENT_INDEX, position);
@@ -29,7 +34,7 @@ public class CategoryAdapter extends FragmentStatePagerAdapter {
         return 14;
     }
 
-    public CategoryAdapter(FragmentManager fm, String[] array) {
+    public CategoryAdapter(FragmentManager fm,String[] array) {
         super(fm);
         this.array = array;
     }
@@ -38,4 +43,5 @@ public class CategoryAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return array[position];
     }
+
 }
