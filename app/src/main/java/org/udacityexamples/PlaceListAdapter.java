@@ -37,7 +37,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Cont
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    fragment.openPlaceCard(result);
+                    fragment.openPlaceCard(result, false);
                 }
             });
         }

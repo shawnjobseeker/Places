@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UdacityExamples</string>
+    <string name="app_name">Places</string>
     <string name="error_api">Error retrieving request for tab %1$s : %2$s</string>
     <string name="connection_failed">Connection failed: %1$s</string>
     <string name="network_lost">Connection suspended: network lost</string>

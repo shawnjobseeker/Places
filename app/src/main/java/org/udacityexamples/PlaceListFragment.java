@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.places.Place;
@@ -28,7 +31,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.squareup.picasso.Picasso;
 
 import org.udacityexamples.model.Result;
 
@@ -88,6 +93,36 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
+        this.googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+            ImageView image;
+            TextView name;
+            TextView address;
+            @Override
+            public View getInfoWindow(Marker marker) {
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker marker) {
+                View v = LayoutInflater.from(getContext()).inflate(R.layout.row_places, null);
+                image = (ImageView)v.findViewById(R.id.photo);
+                name = (TextView)v.findViewById(R.id.name_text);
+                address = (TextView)v.findViewById(R.id.address_text);
+                Result result = (Result)marker.getTag();
+                name.setText(result.getName());
+                address.setText(result.getVicinity());
+                int resource = getResources().getIdentifier(result.getIcon(), "drawable", getActivity().getPackageName());
+                Picasso.with(getContext()).load(resource).into(image);
+                return v;
+            }
+        });
+        this.googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Result result = (Result)marker.getTag();
+                openPlaceCard(result, true);
+            }
+        });
         // map mode switcher
         mapButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +148,8 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
             sumLng += lng;
             LatLng latLng = new LatLng(lat, lng);
             int resource = getResources().getIdentifier(result.getIcon(), "drawable", getActivity().getPackageName());
-            googleMap.addMarker(options.position(latLng).icon(BitmapDescriptorFactory.fromBitmap(scaleBitmap(resource, 25, 25))));
+            options = options.position(latLng).icon(BitmapDescriptorFactory.fromBitmap(scaleBitmap(resource, 25, 25)));
+            googleMap.addMarker(options).setTag(result);
         }
         avgLat = sumLat / results.size();
         avgLng = sumLng / results.size();
@@ -133,7 +169,7 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
     }
 
     @Override
-    public void openPlaceCard(Result result) {
+    public void openPlaceCard(Result result, boolean openedFromMap) {
         if (result == null)
             return;
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -149,6 +185,7 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
         args.putString("phone", result.getFormattedPhoneNumber());
         args.putString("address", result.getVicinity());
         args.putString("website", result.getWebsite());
+        args.putBoolean("openedFromMap", openedFromMap);
         fragment.setArguments(args);
         transaction.replace(R.id.activity_main, fragment, "detail");
         transaction.show(fragment);

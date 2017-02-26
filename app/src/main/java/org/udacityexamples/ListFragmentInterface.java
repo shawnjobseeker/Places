@@ -19,13 +19,12 @@ public interface ListFragmentInterface {
     void passResultSet(Set<Result> results, String status);
     View getView();
     Activity getActivity();
-    void openPlaceCard(Result result);
+    void openPlaceCard(Result result, boolean openedFromMap);
     Result getNextResult();
     Result getPreviousResult();
     void showResultsInMap();
     Bitmap scaleBitmap(int resource, int height, int width);
     void onMapModeChanged(boolean mapMode);
-    boolean getUserVisibleHint();
    // void setTag(String tag);
 }
 

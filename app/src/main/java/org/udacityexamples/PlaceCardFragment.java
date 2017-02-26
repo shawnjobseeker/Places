@@ -37,7 +37,12 @@ public class PlaceCardFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.place_card, container, false);
+        View v = inflater.inflate(R.layout.place_card, container, false);
+        if (getArguments().getBoolean("openedFromMap")) {
+            v.findViewById(R.id.button_back).setVisibility(View.GONE);
+            v.findViewById(R.id.button_forward).setVisibility(View.GONE);
+        }
+        return v;
     }
 
     @Override
@@ -47,14 +52,14 @@ public class PlaceCardFragment extends Fragment  {
             @Override
             public void onClick(View view) {
                 getActivity().onBackPressed();
-                fragment.openPlaceCard(fragment.getPreviousResult());
+                fragment.openPlaceCard(fragment.getPreviousResult(), false);
             }
         });
         view.findViewById(R.id.button_forward).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getActivity().onBackPressed();
-                fragment.openPlaceCard(fragment.getNextResult());
+                fragment.openPlaceCard(fragment.getNextResult(), false);
             }
         });
         // gather place data
