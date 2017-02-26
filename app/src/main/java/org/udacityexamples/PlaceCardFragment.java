@@ -1,5 +1,6 @@
 package org.udacityexamples;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.PlacePhotoMetadataResult;
 import com.google.android.gms.location.places.Places;
+import com.google.android.gms.maps.model.LatLng;
 
 import org.udacityexamples.model.Result;
 
@@ -87,7 +89,7 @@ public class PlaceCardFragment extends Fragment  {
         Places.GeoDataApi.getPlaceById(activity.getClient(), getArguments().getString("placeId")).setResultCallback(new ResultCallback<PlaceBuffer>() {
             @Override
             public void onResult(@NonNull PlaceBuffer places) {
-                Place place = places.get(0);
+               final Place place = places.get(0);
                 address.setText(place.getAddress());
                 phone.setText(place.getPhoneNumber());
                 Uri web = place.getWebsiteUri();
@@ -95,6 +97,17 @@ public class PlaceCardFragment extends Fragment  {
                     website.setText(web.toString());
                 else
                     website.setText("N/A");
+                // default intent if autoLink:map doesn't work on address
+                address.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        LatLng latLng = place.getLatLng();
+                        Uri navigation = Uri.parse("google.navigation:q=" + latLng.latitude + "," + latLng.longitude);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, navigation);
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
+                    }
+                });
             }
         });
 

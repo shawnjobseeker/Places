@@ -36,5 +36,8 @@
         app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_dialog_map"
         android:id="@+id/map_mode"
-        android:layout_gravity="bottom|right" />
+        app:layout_anchor="@+id/recyclerview"
+        app:layout_anchorGravity="bottom|left"
+        android:layout_gravity="center_vertical|center_horizontal" />
+
 </android.support.design.widget.CoordinatorLayout>
