@@ -1,6 +1,8 @@
 package org.udacityexamples;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +48,8 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.Cont
     @Override
     public void onBindViewHolder(ContactListViewHolder holder, int position) {
         holder.result = results.get(position);
-        Picasso.with(fragment.getContext()).load(fragment.getResources().getIdentifier(holder.result.getIcon(), "drawable", fragment.getContext().getPackageName())).into(holder.image);
+        Drawable resource = ContextCompat.getDrawable(fragment.getContext(), fragment.getResources().getIdentifier(holder.result.getIcon(), "drawable", fragment.getContext().getPackageName()));
+        holder.image.setImageDrawable(resource);
         holder.name.setText(holder.result.getName());
         holder.address.setText(holder.result.getVicinity());
     }

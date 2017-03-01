@@ -3,6 +3,7 @@ package org.udacityexamples;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -116,7 +117,7 @@ public class PlaceCardFragment extends Fragment implements CardFragmentInterface
             return;
         ImageView photo = (ImageView) getView().findViewById(R.id.business_pic);
         if (image != null) {
-            photo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            photo.setScaleType(ImageView.ScaleType.FIT_START);
             photo.setImageBitmap(image);
             photo.setPadding(0,0,0,0);
         }
@@ -154,8 +155,14 @@ public class PlaceCardFragment extends Fragment implements CardFragmentInterface
     public void setTransitDistance(String transitDistance) {
         transit = (Button)getView().findViewById(R.id.transit);
         transit.setText(transitDistance);
-        driving.setOnClickListener(new NavOnClickListener(transit.getId()));
+        transit.setOnClickListener(new NavOnClickListener(transit.getId()));
     }
+
+    private void setCompoundDrawable(Button button, int resource) {
+        Drawable drawable = ContextCompat.getDrawable(getContext(), resource);
+        button.setCompoundDrawables(drawable, null, null, null);
+    }
+
     private class NavOnClickListener implements View.OnClickListener {
         int textViewId;
         NavOnClickListener(int textViewId) {

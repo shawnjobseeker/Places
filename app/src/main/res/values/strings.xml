@@ -14,4 +14,5 @@
     <string name="km">km</string>
     <string name="mi">miles</string>
     <string name="distance_time_taken">Distance (and time) from current location:</string>
+    <string name="business_pic">Photo of this business</string>
 </resources>

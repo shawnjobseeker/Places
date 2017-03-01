@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -173,6 +174,7 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
         if (result == null)
             return;
         resultIndex = results.indexOf(result);
+        FragmentManager supportFragmentManager =  getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
         PlaceCardFragment fragment = new PlaceCardFragment();
@@ -195,14 +197,13 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
 
     @Override
     public Result getNextResult() {
+        resultIndex += 1;
         if (resultIndex == results.size()) {
             Toast.makeText(getContext(), getString(R.string.no_more_places), Toast.LENGTH_SHORT).show();
             return null;
         }
-        else {
-            resultIndex += 1;
+        else
             return results.get(resultIndex);
-        }
     }
 
     @Override
