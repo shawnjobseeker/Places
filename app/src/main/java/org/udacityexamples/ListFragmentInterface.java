@@ -31,17 +31,17 @@ public interface ListFragmentInterface {
 /*
 Kanto (RB)
 Tall grass:
-Route 1 - Pidgey, Rattata
-Route 22 - NidoranM, NidoranF, Spearow
-Route 2 - Pidgey, Caterpie OR Weedle
+org.udacityexamples.model.Route 1 - Pidgey, Rattata
+org.udacityexamples.model.Route 22 - NidoranM, NidoranF, Spearow
+org.udacityexamples.model.Route 2 - Pidgey, Caterpie OR Weedle
 Viridian Forest - Caterpie, Weedle, Metapod OR Kakuna, Pikachu
-Route 3 - Pidgey, Spearow, Jigglypuff
-Route 4 - Rattata, Ekans OR Sandshrew
+org.udacityexamples.model.Route 3 - Pidgey, Spearow, Jigglypuff
+org.udacityexamples.model.Route 4 - Rattata, Ekans OR Sandshrew
 Routes 24 and 25 - Caterpie OR Weedle, Metapod OR Kakuna, Oddish OR Bellsprout, Abra
 Routes 5 and 6 - Pidgey, Mankey OR Meowth, Oddish OR Bellsprout
-Route 11 - Spearow, Ekans OR Sandshrew, Drowzee
-Route 9 - Rattata, Spearow, Ekans OR Sandshrew
-Route 10 -  Spearow, Ekans OR Sandshrew, Voltorb
+org.udacityexamples.model.Route 11 - Spearow, Ekans OR Sandshrew, Drowzee
+org.udacityexamples.model.Route 9 - Rattata, Spearow, Ekans OR Sandshrew
+org.udacityexamples.model.Route 10 -  Spearow, Ekans OR Sandshrew, Voltorb
 Routes 7 and 8 - Pidgey, Pidgeotto, Growlithe OR Vulpix
 Routes 12, 13, 14 and 15 - Pidgey, Pidgeotto, Oddish OR Bellsprout, Gloom OR Weepinbell, Venonat
 Routes 16, 17 and 18 - Rattata, Raticate, Spearow, Fearow, Doduo
@@ -49,8 +49,8 @@ Safari Zone Area 1 - NidoranM, NidoranF, Exeggcute, Chansey
 Safari Zone Area 2 - NidoranM, Nidorino, Rhyhorn, Kangaskhan
 Safari Zone Area 3 - NidoranF, Nidorina, Venonat, Venomoth, Scyther OR Pinsir
 Safari Zone Area 4 - Paras, Parasect, Doduo, Tauros
-Route 21 - Ditto, Tangela
-Route 23 - Spearow, Fearow, Arbok OR Sandslash
+org.udacityexamples.model.Route 21 - Ditto, Tangela
+org.udacityexamples.model.Route 23 - Spearow, Fearow, Arbok OR Sandslash
 
 Cave or unknown building:
 Mt. Moon - Zubat, Paras, Geodude, Clefairy
@@ -84,7 +84,7 @@ Safari Zone - Goldeen, Seaking, Dratini
 Non-encountered Pokémon:
 Bulbasaur OR Charmander OR Squirtle - Starter
 Farfetch'd - Trade Spearow in house in Vermilion City
-Mr. Mime - Trade Abra in house in Route 2
+Mr. Mime - Trade Abra in house in org.udacityexamples.model.Route 2
 Jynx - Trade Poliwhirl in house in Cerulean City
 Eevee - Obtain from top of Celadon Condominiums
 Porygon - Game Corner Prize (9999 OR 6500 coins)
@@ -98,36 +98,36 @@ Aerodactyl - Trade Old Amber in lab in Cinnabar Island
 Johto and Kanto (GS)
 Tall grass:
 Routes 29 and 1 - Sentret, Pidgey (Morn, Day), Rattata (Night, Morn), Hoothoot (Night)
-Route 46 - Spearow, Jigglypuff (Morn, Day), Zubat (Night), Geodude (all times)
-Route 30 - Caterpie OR Weedle, Metapod OR Kakuna, Pidgey (Morn, Day), Hoothoot (Night), Spinarak (Night) OR Ledyba (Morn)
-Route 31 - Caterpie OR Weedle, Metapod OR Kakuna, Bellsprout (Morn, Day), Zubat (Night), Spinarak (Night) OR Ledyba (Morn)
-Route 32 - Bellsprout, Mareep (Morn, Day), Hoppip (Day), Zubat, Wooper (Night), Ekans (Silver only - all times)
-Route 33 - Mareep (Morn, Day), Hoppip (Day), Zubat (Night), Ekans (Silver only - all times)
-Route 34 - Pidgey (Morn, Day), Hoothoot (Night), Drowzee, Abra, Ditto (all times)
-Route 35 - Pidgey (Morn, Day), Hoothoot (Night), Yanma (Day, during swarm only), NidoranM, NidoranF (all times)
+org.udacityexamples.model.Route 46 - Spearow, Jigglypuff (Morn, Day), Zubat (Night), Geodude (all times)
+org.udacityexamples.model.Route 30 - Caterpie OR Weedle, Metapod OR Kakuna, Pidgey (Morn, Day), Hoothoot (Night), Spinarak (Night) OR Ledyba (Morn)
+org.udacityexamples.model.Route 31 - Caterpie OR Weedle, Metapod OR Kakuna, Bellsprout (Morn, Day), Zubat (Night), Spinarak (Night) OR Ledyba (Morn)
+org.udacityexamples.model.Route 32 - Bellsprout, Mareep (Morn, Day), Hoppip (Day), Zubat, Wooper (Night), Ekans (Silver only - all times)
+org.udacityexamples.model.Route 33 - Mareep (Morn, Day), Hoppip (Day), Zubat (Night), Ekans (Silver only - all times)
+org.udacityexamples.model.Route 34 - Pidgey (Morn, Day), Hoothoot (Night), Drowzee, Abra, Ditto (all times)
+org.udacityexamples.model.Route 35 - Pidgey (Morn, Day), Hoothoot (Night), Yanma (Day, during swarm only), NidoranM, NidoranF (all times)
 National Park - Caterpie OR Weedle, Metapod OR Kakuna, Pidgey (Morn, Day), Sunkern (Day), Hoothoot, Oddish (Night)
 Bug-Catching Contest - Caterpie, Metapod, Butterfree, Weedle, Kakuna, Beedrill, Paras, Venonat, Scyther, Pinsir
 Routes 36 and 37 - Pidgey, Growlithe OR Vulpix (Morn, Day), Venonat, Hoothoot (Night), Spinarak (Night) OR Ledyba (Morn), Stantler OR Girafarig (all times)
-(Also on Route 36, use SquirtBottle on tree to encounter Sudowoodo)
-Route 38 - Farfetch'd (Morn, Day), Rattata (Night), Mankey OR Meowth, Miltank (all times), Snubbull (all times, during swarm only)
-Route 39 - Farfetch'd (Morn, Day), Rattata (Night), Magnemite, Miltank (all times), Tauros (all times, during swarm only)
-Route 42 - Spearow (Morn, Day), Meowth OR Mankey (all times)
-Route 43 - Pidgey, Pidgeotto, Mareep, Flaaffy (Morn, Day), Venonat, Hoothoot, Noctowl (Night), Stantler OR Girafarig (all times)
+(Also on org.udacityexamples.model.Route 36, use SquirtBottle on tree to encounter Sudowoodo)
+org.udacityexamples.model.Route 38 - Farfetch'd (Morn, Day), Rattata (Night), Mankey OR Meowth, Miltank (all times), Snubbull (all times, during swarm only)
+org.udacityexamples.model.Route 39 - Farfetch'd (Morn, Day), Rattata (Night), Magnemite, Miltank (all times), Tauros (all times, during swarm only)
+org.udacityexamples.model.Route 42 - Spearow (Morn, Day), Meowth OR Mankey (all times)
+org.udacityexamples.model.Route 43 - Pidgey, Pidgeotto, Mareep, Flaaffy (Morn, Day), Venonat, Hoothoot, Noctowl (Night), Stantler OR Girafarig (all times)
 Ruins of Alph - Natu, Smeargle (all times)
-Route 44 - Bellsprout, Weepinbell (Morn, Day), Oddish, Gloom (Night), Lickitung, Tangela (all times)
-Route 45 - Teddiursa OR Phanpy (Morn, Day), Zubat (Night), Gligar OR Skarmory, Geodude, Graveler (all times)
+org.udacityexamples.model.Route 44 - Bellsprout, Weepinbell (Morn, Day), Oddish, Gloom (Night), Lickitung, Tangela (all times)
+org.udacityexamples.model.Route 45 - Teddiursa OR Phanpy (Morn, Day), Zubat (Night), Gligar OR Skarmory, Geodude, Graveler (all times)
 Routes 26 and 27 - Ponyta, Doduo (Morn, Day), Raticate, Quagsire (Night), Arbok (Silver only - all times)
 Routes 5 and 6 - Pidgey, Pidgeotto, Bellsprout, Weepinbell (Morn, Day), Hoothoot, Noctowl, Oddish, Gloom (Night), Meowth OR Mankey (all times)
-Route 10 - Voltorb, Electabuzz (all times)
-Route 11 - Fearow (Morn, Day), Raticate (Night), Magnemite, Drowzee (all times)
+org.udacityexamples.model.Route 10 - Voltorb, Electabuzz (all times)
+org.udacityexamples.model.Route 11 - Fearow (Morn, Day), Raticate (Night), Magnemite, Drowzee (all times)
 Routes 7 and 8 - Pidgey, Pidgeotto, Growlithe OR Vulpix (Morn, Day), Murkrow, Houndour (Night)
 Routes 4 and 9 - Fearow (Morn, Day), Raticate (Night), Arbok (Silver only - all times)
 Routes 12, 13, 14 and 15 - Bellsprout, Weepinbell (Morn, Day), Oddish, Gloom (Night), Skiploom, Chansey (Day), Nidorina, Nidorino (all times)
 Routes 16, 17 and 18 - Fearow, Doduo, Grimer, Slugma
-Route 3 - Pidgey, Jigglypuff (Morn, Day), Zubat (Night)
-Route 2 - Caterpie OR Weedle, Metapod OR Kakuna, Pikachu (Morn, Day), Hoothoot (Night), Rattata (Night, Morn)
-Route 21 - Mr. Mime, Tangela (all times)
-Route 28 - Dodrio, Ponyta, Rapidash (Morn, Day), Sneasel, Quagsire (Night), Ursaring OR Donphan (all times)
+org.udacityexamples.model.Route 3 - Pidgey, Jigglypuff (Morn, Day), Zubat (Night)
+org.udacityexamples.model.Route 2 - Caterpie OR Weedle, Metapod OR Kakuna, Pikachu (Morn, Day), Hoothoot (Night), Rattata (Night, Morn)
+org.udacityexamples.model.Route 21 - Mr. Mime, Tangela (all times)
+org.udacityexamples.model.Route 28 - Dodrio, Ponyta, Rapidash (Morn, Day), Sneasel, Quagsire (Night), Ursaring OR Donphan (all times)
 (Raikou, Entei and Suicune roam across Johto after being awakened at Burned Tower)
 
 Cave or unknown building:
@@ -155,7 +155,7 @@ Silver Cave (2F) - Golbat, Onix, Golduck, Quagsire, Ursaring OR Donphan, Misdrea
 Surfing:
 Routes 10, 12, 19, 20, 21, 26, 27, 34, 40 and 41, Vermilion City, Cinnabar Island, New Bark Town, Cherrygrove City, Olivine City, Cianwood City - Tentacool, Tentacruel
 Routes 6, 23, 24, 25, 35, 42 and 44, Viridian City, Cerulean City, Celadon City, Violet City, Ecruteak City - Psyduck
-Route 32, Union Cave, Ruins of Alph - Wooper
+org.udacityexamples.model.Route 32, Union Cave, Ruins of Alph - Wooper
 Union Cave (B1F) - Wooper, Quagsire, Lapras (every Friday)
 Mt. Mortar - Zubat, Marill
 Lake of Rage - Magikarp, Gyarados
@@ -180,7 +180,7 @@ Routes 6, 23, 24, 25, 28, 35 and 44, Viridian City, Cerulean City, Celadon City,
 Vermilion City, Olivine City - Shellder, Corsola (Morn, Day), Staryu, Chinchou (Night)
 Routes 12 and 32 - Qwilfish
 Routes 42 and 44 - Remoraid
-Route 45 - Mt. Mortar, Dark Cave, Tohjo Falls, Silver Cave - Goldeen, Seaking
+org.udacityexamples.model.Route 45 - Mt. Mortar, Dark Cave, Tohjo Falls, Silver Cave - Goldeen, Seaking
 Dragon's Den, Lake of Rage - Gyarados
 Whirl Islands - Horsea, Seadra
 
@@ -197,22 +197,22 @@ Shuckle - Obtain from Cianwood resident
 
 Hoenn (RSE)
 Tall grass:
-Route 101 - Poochyena, Zigzagoon, Wurmple
-Route 103 - Poochyena, Zigzagoon, Wingull
-Route 102 - Poochyena, Seedot OR Lotad (both in Emerald), Ralts, Surskit (during swarm only, not in Emerald)
-Route 104 - Zigzagoon, Wurmple, Taillow, Wingull
+org.udacityexamples.model.Route 101 - Poochyena, Zigzagoon, Wurmple
+org.udacityexamples.model.Route 103 - Poochyena, Zigzagoon, Wingull
+org.udacityexamples.model.Route 102 - Poochyena, Seedot OR Lotad (both in Emerald), Ralts, Surskit (during swarm only, not in Emerald)
+org.udacityexamples.model.Route 104 - Zigzagoon, Wurmple, Taillow, Wingull
 Petalburg Woods - Wurmple, Silcoon, Cascoon, Shroomish, Slakoth
-Route 116 - Zigzagoon, Taillow, Nincada, Whismur, Skitty (during swarm only)
-Route 110 - Oddish, Wingull, Minun OR Plusle (both in Emerald), Electrike, Gulpin
-Route 117 - Oddish, Marill, Roselia (not in Emerald), Illumise OR Volbeat (both in Emerald)
-Route 112 - Numel, Machop
-Route 113 - Spinda, Skarmory, Sandshrew (not in Emerald), Slugma (Emerald only)
-Route 114 - Seedot OR Lotad (both in Emerald), Nuzleaf OR Lombre (both in Emerald), Zangoose (R) OR Seviper (SE), Swablu
+org.udacityexamples.model.Route 116 - Zigzagoon, Taillow, Nincada, Whismur, Skitty (during swarm only)
+org.udacityexamples.model.Route 110 - Oddish, Wingull, Minun OR Plusle (both in Emerald), Electrike, Gulpin
+org.udacityexamples.model.Route 117 - Oddish, Marill, Roselia (not in Emerald), Illumise OR Volbeat (both in Emerald)
+org.udacityexamples.model.Route 112 - Numel, Machop
+org.udacityexamples.model.Route 113 - Spinda, Skarmory, Sandshrew (not in Emerald), Slugma (Emerald only)
+org.udacityexamples.model.Route 114 - Seedot OR Lotad (both in Emerald), Nuzleaf OR Lombre (both in Emerald), Zangoose (R) OR Seviper (SE), Swablu
 Jagged Pass - Numel, Spoink
-Route 115 - Taillow, Swellow, Swablu, Jigglypuff
-Route 118 - Zigzagoon, Linoone, Electrike, Manectric, Kecleon (rare)
-Route 119 - Zigzagoon, Linoone, Oddish, Tropius, Kecleon (rare)
-Route 120 - Zigzagoon, Linoone, Oddish, Marill, Absol, Kecleon (rare)
+org.udacityexamples.model.Route 115 - Taillow, Swellow, Swablu, Jigglypuff
+org.udacityexamples.model.Route 118 - Zigzagoon, Linoone, Electrike, Manectric, Kecleon (rare)
+org.udacityexamples.model.Route 119 - Zigzagoon, Linoone, Oddish, Tropius, Kecleon (rare)
+org.udacityexamples.model.Route 120 - Zigzagoon, Linoone, Oddish, Marill, Absol, Kecleon (rare)
 Routes 121 and 123 -  Zigzagoon, Linoone, Duskull OR Shuppet (both in Emerald), Kecleon (rare)
 Mt. Pyre - Wingull, Vulpix, Meditite (not in Emerald), Duskull OR Shuppet (both in Emerald), Chimecho (rare)
 Safari Zone Area 1 - Oddish, Gloom, Girafarig, Pikachu
@@ -229,7 +229,7 @@ Granite Cave (B1F, B2F) - Zubat, Aron, Mawile OR Sableye (both in Emerald)
 Fiery Path - Slugma, Torkoal, Koffing OR Grimer
 Meteor Falls - Zubat, Solrock (RE) OR Lunatone (S)
 Meteor Falls (back, requires Waterfall) - Golbat, Solrock (RE) OR Lunatone (S), Bagon
-Route 111 Desert - Sandshrew, Trapinch, Cacnea, Baltoy
+org.udacityexamples.model.Route 111 Desert - Sandshrew, Trapinch, Cacnea, Baltoy
 New Mauville - Magnemite, Voltorb
 Mt. Pyre - Duskull OR Shuppet (both in Emerald)
 Shoal Cave - Zubat, Golbat, Spheal, Snorunt (B1F only)
@@ -243,7 +243,7 @@ Artisan Cave (Emerald only) - Smeargle
 
 Surfing:
 Routes 103, 104 South, 105-110, 118, 122 and 124-134, Slateport City, Lilycove City, Mossdeep City, Pacifidlog Town, Ever Grande City - Wingull, Pelipper, Tentacool
-Route 119 - Tentacool
+org.udacityexamples.model.Route 119 - Tentacool
 Routes 102, 104 North, 111, 114, 117, 120 and 123, Petalburg City - Marill
 Meteor Falls - Zubat, Golbat, Solrock (RE) OR Lunatone (S)
 Shoal Cave - Zubat, Golbat, Spheal
@@ -259,7 +259,7 @@ All other waters - Magikarp
 Good Rod:
 Routes 103, 104 South, 105-110, 122 and 124-134, Slateport City, Lilycove City, Mossdeep City, Pacifidlog Town, Ever Grande City - Tentacool, Wailmer
 Routes 102 and 117, Petalburg City - Goldeen, Corphish
-Route 104 North, Safari Zone - Goldeen
+org.udacityexamples.model.Route 104 North, Safari Zone - Goldeen
 Routes 111 and 114, Meteor Falls, Shoal Cave, Seafloor Cavern, Victory Road - Magikarp, Barboach
 Routes 118 and 119 - Tentacool, Carvanha
 Sootopolis City - Magikarp
@@ -271,9 +271,9 @@ Ever Grande City - Luvdisc, Wailmer
 Routes 132, 133 and 134 - Horsea, Wailmer
 Pacifidlog Town - Corsola, Wailmer
 Routes 102 and 117, Petalburg City - Corphish
-Route 118 - Carvanha
-Route 119 - Carvanha, Feebas
-Route 104 North - Goldeen
+org.udacityexamples.model.Route 118 - Carvanha
+org.udacityexamples.model.Route 119 - Carvanha, Feebas
+org.udacityexamples.model.Route 104 North - Goldeen
 Routes 111 and 114, Meteor Falls, Shoal Cave, Seafloor Cavern, Victory Road - Barboach, Whiscash
 Safari Zone - Goldeen, Seaking
 Sootopolis City - Magikarp, Gyarados
@@ -345,45 +345,45 @@ Togepi - hatch from Egg received in Water Labyrinth
 
 Sinnoh (DPPt)
 Tall grass:
-Route 201 - Starly, Bidoof, Poochyena (during swarm only)
+org.udacityexamples.model.Route 201 - Starly, Bidoof, Poochyena (during swarm only)
 Lake Verity - Starly, Bidoof, Surskit (during swarm only)
-Route 202 - Starly (Day), Kricketot (Morning, Night), Bidoof (all times)
-Route 203 - Kricketot (Morning, Night), Abra, Shinx (Morning, Day), Zubat (Night), Ralts (Platinum - all times)
-Route 204 - Budew (Day), Kricketot (Morning, Night), Shinx (Morning, Day), Zubat (Night),  Bidoof (all times)
-Route 207 - Geodude, Machop, Aron (during swarm only)
-Route 205 - Buizel, Shellos
+org.udacityexamples.model.Route 202 - Starly (Day), Kricketot (Morning, Night), Bidoof (all times)
+org.udacityexamples.model.Route 203 - Kricketot (Morning, Night), Abra, Shinx (Morning, Day), Zubat (Night), Ralts (Platinum - all times)
+org.udacityexamples.model.Route 204 - Budew (Day), Kricketot (Morning, Night), Shinx (Morning, Day), Zubat (Night),  Bidoof (all times)
+org.udacityexamples.model.Route 207 - Geodude, Machop, Aron (during swarm only)
+org.udacityexamples.model.Route 205 - Buizel, Shellos
 Valley Windworks - Buizel, Pachirisu, Elekid (Platinum only), Electrike (during swarm only)
 Eterna Forest - Buneary (Morn, Day), Murkrow OR Misdreavus (Night), Wurmple, Silcoon OR Cascoon (all times), Slakoth (during swarm only)
 Routes 208 and 211 West - Ponyta, Bidoof (Morn, Day), Chingling, Hoothoot (Night)
-Route 206 - Stunky OR Bonsly, Geodude, Kricketune, Baltoy (during swarm only)
-Route 209 - Starly, Staravia, Bibarel, Mime. Jr OR Glameow
-Route 210 South - Stunky OR Bonsly, Ponyta, Geodude, Chansey, Swablu (Platinum only)
-Route 215 - Abra, Kadabra, Azurill, Geodude, Scyther (Platinum only), Kecleon (during swarm only)
-Route 214 - Bibarel, Geodude, Girafarig, Rhyhorn (Platinum only)
-Route 213 - Wingull, Buizel, Shellos, Magnemite (Platinum only)
-Route 212 - Marill (Morn, Day), Wooper (Night), Bibarel (DP only - all times), Tropius (Platinum only - all times)
+org.udacityexamples.model.Route 206 - Stunky OR Bonsly, Geodude, Kricketune, Baltoy (during swarm only)
+org.udacityexamples.model.Route 209 - Starly, Staravia, Bibarel, Mime. Jr OR Glameow
+org.udacityexamples.model.Route 210 South - Stunky OR Bonsly, Ponyta, Geodude, Chansey, Swablu (Platinum only)
+org.udacityexamples.model.Route 215 - Abra, Kadabra, Azurill, Geodude, Scyther (Platinum only), Kecleon (during swarm only)
+org.udacityexamples.model.Route 214 - Bibarel, Geodude, Girafarig, Rhyhorn (Platinum only)
+org.udacityexamples.model.Route 213 - Wingull, Buizel, Shellos, Magnemite (Platinum only)
+org.udacityexamples.model.Route 212 - Marill (Morn, Day), Wooper (Night), Bibarel (DP only - all times), Tropius (Platinum only - all times)
 Trophy Garden - Pichu, Pikachu, Roselia, Kricketune
 Trophy Garden (post-credits, species change every day) Plusle, Minun, Castform, Bonsly, Mime. Jr, Happiny
 Great Marsh Area 1 - Bidoof, Bibarel, Croagunk, Shroomish (requires National Dex)
 Great Marsh Area 2 - Azurill, Marill (Morn, Day), Hoothoot, Noctowl (Night), Skorupi
 Great Marsh Area 3 - Wooper, Quagsire, Carnivine, Tangela (Platinum only)
 Great Marsh Area 4 - Budew, Roselia, Psyduck, Yanma (Platinum only)
-Route 210 North and 211 East - Machop, Machoke, Bibarel (Morn, Day), Hoothoot, Noctowl, Chingling (Night), Gligar (Platinum only - all times)
-Route 218 - Mr. Mime OR Glameow, Chatot, Shellos, Gastrodon, Staravia, Lickitung (Platinum only)
-Route 221 - Skuntank OR Sudowoodo, Shellos, Gastrodon, Absol (Platinum only)
+org.udacityexamples.model.Route 210 North and 211 East - Machop, Machoke, Bibarel (Morn, Day), Hoothoot, Noctowl, Chingling (Night), Gligar (Platinum only - all times)
+org.udacityexamples.model.Route 218 - Mr. Mime OR Glameow, Chatot, Shellos, Gastrodon, Staravia, Lickitung (Platinum only)
+org.udacityexamples.model.Route 221 - Skuntank OR Sudowoodo, Shellos, Gastrodon, Absol (Platinum only)
 Fuego Ironworks - Shinx, Luxio, Pachirisu, Magby (Platinum only - Morn, Day), Houndour (Platinum only - Night)
-Route 216 - Snover, Machoke, Graveler, Meditite (Morn, Day), Sneasel (Night), Swinub (Platinum only)
-Route 217, Acuity Lakefront - Snover, Machoke, Graveler, Meditite (Morn, Day), Sneasel (Night), Snorunt (Platinum only)
+org.udacityexamples.model.Route 216 - Snover, Machoke, Graveler, Meditite (Morn, Day), Sneasel (Night), Swinub (Platinum only)
+org.udacityexamples.model.Route 217, Acuity Lakefront - Snover, Machoke, Graveler, Meditite (Morn, Day), Sneasel (Night), Snorunt (Platinum only)
 Lake Acuity - Bibarel (Morn, Day), Sneasel (Night), Psyduck, Golduck (all times)
 Mt. Coronet - Machoke, Medicham (Morn, Day), Golbat, Noctowl (Night), Snover, Abomasnow (all times), Loudred (during swarm only)
-Route 222 - Mr. Mime OR Purugly, Chatot, Gastrodon, Floatzel, Magneton (Platinum only), Skitty (during swarm only)
-Route 224 - Weepinbell (Morn, Day), Gloom (Night), Floatzel, Gastrodon, Lotad, Lombre (all times)
-Route 225 - Makuhita, Hariyama (Morn, Day), Shuppet, Banette (Night), Zangoose OR Seviper (all times)
-Route 226 - Zigzagoon, Linoone, Taillow, Swellow
-Route 227 - Numel, Camerupt, Spoink, Grumpig, Spinda
-Route 228 - Trapinch, Vibrava, Cacnea, Cacturne, Nincada, Beldum (during swarm only)
-Route 229 - Ledian (Morn), Ariados (Night), Seedot, Nuzleaf, Gulpin, Swalot
-Route 230 - Beautifly, Dustox, Volbeat OR Illumise
+org.udacityexamples.model.Route 222 - Mr. Mime OR Purugly, Chatot, Gastrodon, Floatzel, Magneton (Platinum only), Skitty (during swarm only)
+org.udacityexamples.model.Route 224 - Weepinbell (Morn, Day), Gloom (Night), Floatzel, Gastrodon, Lotad, Lombre (all times)
+org.udacityexamples.model.Route 225 - Makuhita, Hariyama (Morn, Day), Shuppet, Banette (Night), Zangoose OR Seviper (all times)
+org.udacityexamples.model.Route 226 - Zigzagoon, Linoone, Taillow, Swellow
+org.udacityexamples.model.Route 227 - Numel, Camerupt, Spoink, Grumpig, Spinda
+org.udacityexamples.model.Route 228 - Trapinch, Vibrava, Cacnea, Cacturne, Nincada, Beldum (during swarm only)
+org.udacityexamples.model.Route 229 - Ledian (Morn), Ariados (Night), Seedot, Nuzleaf, Gulpin, Swalot
+org.udacityexamples.model.Route 230 - Beautifly, Dustox, Volbeat OR Illumise
 
 Cave or unknown building:
 Ravaged Path - Zubat
@@ -406,7 +406,7 @@ Stark Mountain - Golbat, Koffing, Weezing, Slugma, Magcargo, Numel, Camerupt, To
 
 Surfing:
 Routes 218-221 - Wingull, Tentacool
-Route 222, Sunyshore City - Pelipper, Tentacruel
+org.udacityexamples.model.Route 222, Sunyshore City - Pelipper, Tentacruel
 Routes 223 and 224 - Pelipper, Tentacruel, Mantyke
 Routes 226, 229 and 230 - Pelipper, Tentacruel, Spheal, Sealeo
 Routes 203, 205, 208, 209, Celestic Town - Psyduck, Golduck
@@ -416,7 +416,7 @@ Victory Road - Golbat, Floatzel, Lapras (after obtaining National Dex)
 Fishing:
 Old Rod (all waters) - Magikarp
 Good Rod:
-Route 218 - Magikarp, Tentacool, Finneon
+org.udacityexamples.model.Route 218 - Magikarp, Tentacool, Finneon
 Routes 219-221 - Magikarp, Tentacool
 Routes 222-224, Sunyshore City - Magikarp, Finneon, Remoraid
 Iron Island, Great Marsh, Mt. Coronet, Victory Road - Magikarp, Barboach
@@ -424,11 +424,11 @@ Mt. Coronet - Magikarp, Barboach, Feebas (selected tiles only)
 Routes 226, 229 and 230 - Magikarp, Tentacool, Wailmer
 Routes 203, 205, 208, 209, Celestic Town - Magikarp, Goldeen
 Super Rod:
-Route 218 - Gyarados, Lumineon
+org.udacityexamples.model.Route 218 - Gyarados, Lumineon
 Routes 219-221 - Gyarados, Horsea
 Routes 222-224 - Gyarados, Lumineon, Octillery
 Pokémon League - Gyarados, Lumineon, Octillery, Luvdisc
-Route 226 - Chinchou, Clamperl, Relicanth
+org.udacityexamples.model.Route 226 - Chinchou, Clamperl, Relicanth
 Routes 229 and 230 - Gyarados, Sharpedo, Wailmer
 Iron Island - Qwilfish
 Great Marsh - Carvanha, Whiscash
@@ -442,7 +442,7 @@ Selected trees only - Munchlax
 
 Single encounters:
 Drifloon - Valley Windworks (every Friday)
-Spiritomb - Route 209 (after connecting with others over Wi-Fi 32 times)
+Spiritomb - org.udacityexamples.model.Route 209 (after connecting with others over Wi-Fi 32 times)
 Uxie - Acuity Cavern
 Mesprit - Roaming across Sinnoh after interaction at Verity Cavern
 Azelf - Valor Cavern
@@ -462,23 +462,23 @@ Shieldon - Trade Armor Fossil at Oreburgh Mining Museum
 
 Unova (BW)
 Tall grass:
-Route 1 - Patrat, Lillipup
-Route 2 - Pidove, Purrloin
+org.udacityexamples.model.Route 1 - Patrat, Lillipup
+org.udacityexamples.model.Route 2 - Pidove, Purrloin
 Dreamyard - Patrat, Purrloin, Munna
-Route 3 - Pidove, Blitzle, Audino (rustling grass only)
+org.udacityexamples.model.Route 3 - Pidove, Blitzle, Audino (rustling grass only)
 Pinwheel Forest (outside) - Tympole, Timburr, Throh OR Sawk
 Pinwheel Forest (inside) - Sewaddle, Venipede, Cottonee OR Petilil
-Route 5 - Minccino, Trubbish, Gothita OR Solosis
+org.udacityexamples.model.Route 5 - Minccino, Trubbish, Gothita OR Solosis
 Cold Storage - Herdier, Minccino, Vanillite
-Route 6 - Deerling, Karrablast, Emolga (rustling grass only)
-Route 7 - Tranquill, Foongus, Cubchoo
-Route 9 - Liepard, Pawniard, Gothorita OR Duosion
-Route 10 - Bouffalant, Throh OR Sawk, Rufflet OR Vullaby
-Route 18 - Scraggy, Dwebble, Watchog
+org.udacityexamples.model.Route 6 - Deerling, Karrablast, Emolga (rustling grass only)
+org.udacityexamples.model.Route 7 - Tranquill, Foongus, Cubchoo
+org.udacityexamples.model.Route 9 - Liepard, Pawniard, Gothorita OR Duosion
+org.udacityexamples.model.Route 10 - Bouffalant, Throh OR Sawk, Rufflet OR Vullaby
+org.udacityexamples.model.Route 18 - Scraggy, Dwebble, Watchog
 
 Cave or unknown building:
 Wellspring Cave - Roggenrola, Woobat, Drilbur (dust clouds only)
-Route 4 (Desert) - Sandile, Dwebble, Maractus
+org.udacityexamples.model.Route 4 (Desert) - Sandile, Dwebble, Maractus
 Desert Resort - Dwebble, Darumaka, Scraggy
 Relic Castle - Yamask, Sigilyph
 Driftveil Drawbridge - Ducklett (shadow only)
@@ -491,10 +491,10 @@ Victory Road (Outside) - Mienfoo, Heatmor, Rufflet OR Vullaby
 Victory Road (Inside) - Mienfoo, Durant, Deino
 
 Puddle:
-Route 8, Icirrus City, Moor of Icirrus - Palpitoad, Shelmet, Stunfisk
+org.udacityexamples.model.Route 8, Icirrus City, Moor of Icirrus - Palpitoad, Shelmet, Stunfisk
 
 Single encounters:
-Tornadus OR Thundurus - Roaming across Unova after talking to an NPC in Route 7
+Tornadus OR Thundurus - Roaming across Unova after talking to an NPC in org.udacityexamples.model.Route 7
 Cobalion - Mistralton Cave Guidance Chamber
 Terrakion - Victory Road Trial Chamber
 Virizion - Pinwheel Forest Rumination Field
@@ -508,5 +508,5 @@ Pansage OR Pansear OR Panpour - obtain from traveller at Dreamyard
 Zorua - obtain from Rood at Driftveil City (B2W2 only)
 Archen - Trade Plume Fossil at Nacrene Museum
 Tirtouga - Trade Cover Fossil at Nacrene Museum
-Larvesta - Hatch egg obtained at Route 18
+Larvesta - Hatch egg obtained at org.udacityexamples.model.Route 18
  */

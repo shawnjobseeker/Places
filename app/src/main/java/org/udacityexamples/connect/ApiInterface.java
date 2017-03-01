@@ -1,5 +1,6 @@
 package org.udacityexamples.connect;
 
+import org.udacityexamples.model.Direction;
 import org.udacityexamples.model.PlaceDetail;
 import org.udacityexamples.model.PlaceRequest;
 
@@ -17,5 +18,8 @@ public interface ApiInterface {
 
     @GET("place/nearbysearch/json")
     Observable<PlaceRequest> getPlaces(@Query("location") String location, @Query("radius") int radius, @Query("type") String type, @Query("keyword") String keyword, @Query("key") String apiKey);
+
+    @GET("directions/json")
+    Observable<Direction> getDirection(@Query("origin") String origin, @Query("destination") String destination, @Query("mode") String mode, @Query("key") String apiKey);
 
 }

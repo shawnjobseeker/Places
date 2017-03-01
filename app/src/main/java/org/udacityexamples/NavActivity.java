@@ -21,6 +21,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
@@ -56,7 +57,6 @@ public class NavActivity extends AppCompatActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationView mNavigationView;
-
     private boolean mapMode;
     private GoogleApiClient mGoogleApiClient;
     private ViewPager viewPager;
@@ -64,6 +64,9 @@ public class NavActivity extends AppCompatActivity
     private Location currentLocation;
     private List<String> categories;
     private DrawerLayout drawer;
+    static {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +81,9 @@ public class NavActivity extends AppCompatActivity
                 @Override
                 public boolean onMenuItemClick(MenuItem menuItem) {
                     viewPager.setCurrentItem(menuItem.getOrder());
+                    Fragment fragment = getSupportFragmentManager().findFragmentByTag("detail");
+                    if (fragment != null)
+                        removePlaceCard(fragment);
                     drawer.closeDrawers();
                     return true;
                 }
@@ -152,11 +158,8 @@ public class NavActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag("detail");
-        if (fragment != null) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.remove(fragment);
-            transaction.commit();
-        }
+        if (fragment != null)
+            removePlaceCard(fragment);
         else
             super.onBackPressed();
     }
@@ -181,5 +184,14 @@ public class NavActivity extends AppCompatActivity
     @Override
     public boolean isMapMode() {
         return mapMode;
+    }
+
+    @Override
+    public void removePlaceCard(Fragment fragment) {
+        if (fragment != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.remove(fragment);
+            transaction.commit();
+        }
     }
 }

@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,10 +33,13 @@ import java.util.List;
  * Created by Shawn Li on 2/18/2017.
  */
 
-public class PlaceCardFragment extends Fragment  {
+public class PlaceCardFragment extends Fragment implements CardFragmentInterface {
 
     private TextView businessName, address, phone, website, hours, category;
+    private Button cycling, walking, driving, transit;
     private ListFragmentInterface fragment;
+    private DistanceFinder finder;
+    private LatLng placeLatLng;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,7 +69,7 @@ public class PlaceCardFragment extends Fragment  {
             }
         });
         // gather place data
-        BaseActivityInterface activity = (BaseActivityInterface)getActivity();
+        final BaseActivityInterface activity = (BaseActivityInterface)getActivity();
         businessName = (TextView)view.findViewById(R.id.business_name);
         address = (TextView)view.findViewById(R.id.address);
         phone = (TextView)view.findViewById(R.id.phone);
@@ -92,22 +96,14 @@ public class PlaceCardFragment extends Fragment  {
                final Place place = places.get(0);
                 address.setText(place.getAddress());
                 phone.setText(place.getPhoneNumber());
+                placeLatLng = place.getLatLng();
                 Uri web = place.getWebsiteUri();
                 if (web != null)
                     website.setText(web.toString());
                 else
                     website.setText("N/A");
-                // default intent if autoLink:map doesn't work on address
-                address.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        LatLng latLng = place.getLatLng();
-                        Uri navigation = Uri.parse("google.navigation:q=" + latLng.latitude + "," + latLng.longitude);
-                        Intent intent = new Intent(Intent.ACTION_VIEW, navigation);
-                        intent.setPackage("com.google.android.apps.maps");
-                        startActivity(intent);
-                    }
-                });
+                finder = new DistanceFinder(PlaceCardFragment.this, activity.getCurrentLocation(), place.getLatLng());
+                finder.getDistances();
             }
         });
 
@@ -120,7 +116,7 @@ public class PlaceCardFragment extends Fragment  {
             return;
         ImageView photo = (ImageView) getView().findViewById(R.id.business_pic);
         if (image != null) {
-            photo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            photo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             photo.setImageBitmap(image);
             photo.setPadding(0,0,0,0);
         }
@@ -131,5 +127,62 @@ public class PlaceCardFragment extends Fragment  {
     }
     public void setListFragment(ListFragmentInterface fragment) {
         this.fragment = fragment;
+    }
+
+    @Override
+    public void setCyclingDistance(String cyclingDistance) {
+        cycling = (Button) getView().findViewById(R.id.cycle);
+        cycling.setText(cyclingDistance);
+        cycling.setOnClickListener(new NavOnClickListener(cycling.getId()));
+    }
+
+    @Override
+    public void setWalkingDistance(String walkingDistance) {
+        walking = (Button)getView().findViewById(R.id.walk);
+        walking.setText(walkingDistance);
+        walking.setOnClickListener(new NavOnClickListener(walking.getId()));
+    }
+
+    @Override
+    public void setDrivingDistance(String drivingDistance) {
+        driving = (Button)getView().findViewById(R.id.car);
+        driving.setText(drivingDistance);
+        driving.setOnClickListener(new NavOnClickListener(driving.getId()));
+    }
+
+    @Override
+    public void setTransitDistance(String transitDistance) {
+        transit = (Button)getView().findViewById(R.id.transit);
+        transit.setText(transitDistance);
+        driving.setOnClickListener(new NavOnClickListener(transit.getId()));
+    }
+    private class NavOnClickListener implements View.OnClickListener {
+        int textViewId;
+        NavOnClickListener(int textViewId) {
+            this.textViewId = textViewId;
+        }
+        @Override
+        public void onClick(View view) {
+            String uriString = "";
+            if (textViewId == R.id.transit) {
+                LatLng current = ((BaseActivityInterface)getActivity()).getCurrentLocation();
+                uriString ="http://maps.google.com/maps?saddr="+ current.latitude+","+current.longitude+"&daddr="+placeLatLng.latitude+","+placeLatLng.longitude+"&mode=transit";
+
+            }
+            else {
+              uriString = "google.navigation:q=" + placeLatLng.latitude + "," + placeLatLng.longitude;
+                switch (textViewId) {
+                    case R.id.cycle: uriString += "&mode=b";
+                        break;
+                    case R.id.walk: uriString += "&mode=w";
+                        break;
+                    default: break;
+                }
+            }
+            Uri uri = Uri.parse(uriString);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setPackage("com.google.android.apps.maps");
+            startActivity(intent);
+        }
     }
 }

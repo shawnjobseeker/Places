@@ -26,9 +26,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class PhotoManager implements ResultCallback<PlacePhotoMetadataResult> {
 
     private GoogleApiClient googleApiClient;
-    private PlaceCardFragment fragment;
+    private CardFragmentInterface fragment;
     private List<Bitmap> bitmaps;
-    public PhotoManager(GoogleApiClient googleApiClient, PlaceCardFragment fragment) {
+    public PhotoManager(GoogleApiClient googleApiClient, CardFragmentInterface fragment) {
         this.googleApiClient = googleApiClient;
         this.fragment = fragment;
         this.bitmaps = new ArrayList<Bitmap>();

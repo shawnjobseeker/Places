@@ -1,6 +1,7 @@
 package org.udacityexamples;
 
 import android.app.Application;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.graphics.Bitmap;
 import android.view.View;
@@ -23,4 +24,5 @@ public interface BaseActivityInterface {
      GoogleApiClient getClient();
      void setMapMode(boolean mapMode);
      boolean isMapMode();
+     void removePlaceCard(Fragment fragment);
 }

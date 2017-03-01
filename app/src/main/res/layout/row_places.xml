@@ -11,7 +11,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                app:srcCompat="@drawable/ic_location"
+                app:srcCompat="@drawable/postal_code"
                 android:id="@+id/photo"
                 android:padding="5dp"
                 android:layout_margin="5dp"

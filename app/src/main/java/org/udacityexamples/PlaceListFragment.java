@@ -172,6 +172,7 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
     public void openPlaceCard(Result result, boolean openedFromMap) {
         if (result == null)
             return;
+        resultIndex = results.indexOf(result);
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
         PlaceCardFragment fragment = new PlaceCardFragment();
@@ -225,7 +226,6 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
 
     @Override
     public void onMapModeChanged(boolean mapMode) {
-        Context view = getContext();
         if (mapMode) {
             getView().findViewById(R.id.recyclerview).setVisibility(View.GONE);
             getView().findViewById(R.id.map_container).setVisibility(View.VISIBLE);
