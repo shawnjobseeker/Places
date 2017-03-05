@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="categories">
-        <item>Food &amp; Drink</item>
-        <item>Religious</item>
-        <item>Shopping</item>
-        <item>Health</item>
-        <item>Animals</item>
-        <item>Household</item>
-        <item>Leisure</item>
-        <item>Entertainment</item>
-        <item>Travel</item>
-        <item>Money</item>
-        <item>Motoring</item>
-        <item>Fashion &amp; Beauty</item>
-        <item>Law &amp; Civil</item>
-        <item>Academic</item>
+        <item>@string/food_drink</item>
+        <item>@string/religious</item>
+        <item>@string/shopping</item>
+        <item>@string/health</item>
+        <item>@string/animals</item>
+        <item>@string/household</item>
+        <item>@string/leisure</item>
+        <item>@string/entertainment</item>
+        <item>@string/travel</item>
+        <item>@string/money</item>
+        <item>@string/car</item>
+        <item>@string/fashion</item>
+        <item>@string/law_civil</item>
+        <item>@string/academic</item>
+    </array>
+    <array name="categories_icons">
+        <item>@drawable/food_drink</item>
+        <item>@drawable/religious</item>
+        <item>@drawable/shopping</item>
+        <item>@drawable/health</item>
+        <item>@drawable/animals</item>
+        <item>@drawable/household</item>
+        <item>@drawable/leisure</item>
+        <item>@drawable/entertainment</item>
+        <item>@drawable/travel</item>
+        <item>@drawable/money</item>
+        <item>@drawable/car</item>
+        <item>@drawable/fashion</item>
+        <item>@drawable/law_civil</item>
+        <item>@drawable/academic</item>
     </array>
     <array name="categories_0">
         <item>bar</item>

@@ -3,7 +3,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/card_view"
         app:cardBackgroundColor="@android:color/white">
 
         <RelativeLayout
@@ -11,13 +10,13 @@
             android:layout_height="match_parent">
 
             <ImageView
-                app:srcCompat="@drawable/postal_code"
                 android:id="@+id/photo"
                 android:padding="5dp"
                 android:layout_margin="5dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@color/cardview_shadow_start_color" />
+                android:background="@color/cardview_shadow_start_color"
+             />
 
             <TextView
                 android:text="TextView"
