@@ -6,6 +6,7 @@ import android.view.View;
 
 import org.example.udprojects.model.Result;
 
+import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -23,7 +24,7 @@ public interface ListFragmentInterface {
     void refresh();
     Bitmap scaleBitmap(int resource, int height, int width);
     void onMapModeChanged(boolean mapMode);
-   // void setTag(String tag);
+    Locale getLocale();
 }
 
 /*

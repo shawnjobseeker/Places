@@ -23,9 +23,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD03vIEzjutIpkOJxxkiPR-FXnC2CPaxjw" />
 
-        <activity
-            android:name="org.example.udprojects.MainActivity"
-            android:label="@string/title_activity_nav"></activity>
     </application>
 
 </manifest>

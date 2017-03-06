@@ -47,7 +47,7 @@ public class Presenter {
     public void observeMultipleCategories( String[] categories) {
         MultipleObserver observer = new MultipleObserver(categories);
         for (String category : categories) {
-            api.getPlaces(latLng.latitude + "," + latLng.longitude, radius, category, keywords, API_KEY).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
+            api.getPlaces(latLng.latitude + "," + latLng.longitude, radius, category, keywords, listFragment.getLocale().getLanguage(), API_KEY).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                     .subscribe(observer);
         }
     }

@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +40,7 @@ import org.example.udprojects.model.Result;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -59,9 +63,15 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
     private  BaseActivityInterface activity;
     private SupportMapFragment mapFragment;
 
+    public Locale getLocale() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            return getResources().getConfiguration().getLocales().get(0);
+         else
+            return getResources().getConfiguration().locale;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        Log.d("locale", getLocale().getLanguage());
         position = getArguments().getInt(FRAGMENT_INDEX);
         title = getArguments().getString(FRAGMENT_TITLE);
         View view = inflater.inflate(R.layout.place_list, container, false);
@@ -125,13 +135,15 @@ public class PlaceListFragment extends Fragment implements ListFragmentInterface
             }
         });
         // map mode switcher
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activity.setMapMode(!activity.isMapMode());
-                onMapModeChanged(activity.isMapMode());
-            }
-        });
+        if (mapButton != null)
+            mapButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    activity.setMapMode(!activity.isMapMode());
+                    onMapModeChanged(activity.isMapMode());
+                }
+            });
+
         if (results != null)
         showResultsInMap();
     }

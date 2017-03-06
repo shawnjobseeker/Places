@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <array name="units">
+        <item>@string/km</item>
+        <item>@string/mi</item>
+    </array>
     <array name="categories">
         <item>@string/food_drink</item>
         <item>@string/religious</item>
