@@ -123,6 +123,7 @@
         <item>light_rail_station</item>
         <item>travel_agency</item>
         <item>lodging</item>
+        <item>parking</item>
 </array>
     <array name="categories_9">
         <item>atm</item>

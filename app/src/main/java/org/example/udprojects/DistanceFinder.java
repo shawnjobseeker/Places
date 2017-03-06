@@ -38,7 +38,7 @@ public class DistanceFinder {
     public void getDistances() {
         String[] modes = new String[]{WALKING, CYCLING, DRIVING, TRANSIT};
         for (String mode : modes)
-        api.getDirection(origin, destination, mode, API_KEY).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
+        api.getDirection(origin, destination, mode, fragment.getLocale().getLanguage(), API_KEY).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DistanceObserver(mode));
     }
     private class DistanceObserver implements Observer<Direction> {

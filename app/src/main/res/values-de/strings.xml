@@ -8,7 +8,6 @@
     <string name="navigation_drawer_close">Navigationsschublade schließen</string>
     <string name="open">Geöffnet</string>
     <string name="closed">Geschlossen</string>
-    <string name="categories">Kategorien: %1$s</string>
     <string name="no_more_places">Keine Orte mehr</string>
     <string name="km">km</string>
     <string name="mi">Meile</string>

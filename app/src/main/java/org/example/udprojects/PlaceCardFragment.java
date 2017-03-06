@@ -1,6 +1,7 @@
 package org.example.udprojects;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * Created by Shawn Li on 2/18/2017.
@@ -50,6 +52,11 @@ public class PlaceCardFragment extends Fragment implements CardFragmentInterface
         v.findViewById(R.id.walk).setEnabled(false);
         v.findViewById(R.id.transit).setEnabled(false);
         return v;
+    }
+
+    @Override
+    public Locale getLocale() {
+        return fragment.getLocale();
     }
 
     @Override
@@ -80,10 +87,28 @@ public class PlaceCardFragment extends Fragment implements CardFragmentInterface
         businessName.setText(getArguments().getString("name"));
         address.setText(getArguments().getString("address"));
         String[] types = getArguments().getStringArray("types");
-        if (types != null && types.length >= 1) {
-            String typesToString = Arrays.toString(types);
-            category.setText(getString(R.string.categories, typesToString.substring(1, typesToString.length()-1)));
+        String categoriesText = "";
+        boolean oneFound = false;
+        boolean oneSkipped = false;
+        for (String type : types) {
+            int resource = getResources().getIdentifier(type, "string", getActivity().getPackageName());
+            try {
+
+                if (!oneFound) {
+                    categoriesText += getString(resource);
+                    oneFound = true;
+                }
+                else
+                    categoriesText += ", " + getString(resource);
+            }
+            catch (Resources.NotFoundException e) { // strings at end of array typically don't correspond to any resources; will skip first unknown string in case resources would be missed
+                if (!oneSkipped)
+                    oneSkipped = true;
+                else
+                    break;
+            }
         }
+        category.setText(categoriesText);
         String openClosed = getArguments().getString("hours");
         if (openClosed != null)
             hours.setText(openClosed);
