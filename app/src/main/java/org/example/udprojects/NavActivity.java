@@ -154,6 +154,7 @@ public class NavActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        drawer.closeDrawers();
         if (item.getItemId() == R.id.action_settings) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             SettingsFragment fragment = new SettingsFragment();

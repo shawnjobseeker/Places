@@ -22,7 +22,7 @@
     <string name="shopping">Shopping</string>
     <string name="health">Healthcare &amp; Fitness</string>
     <string name="animals">Animals</string>
-    <string name="household">Household</string>
+    <string name="household">Property maintenance</string>
     <string name="leisure">Leisure</string>
     <string name="entertainment">Entertainment</string>
     <string name="travel">Travel</string>
@@ -50,6 +50,7 @@
     <string name="electronics_store">Electronics store</string>
     <string name="florist">Florist</string>
     <string name="furniture_store">Furniture store</string>
+    <string name="hardware_store">Hardware store</string>
     <string name="home_goods_store">Home goods store</string>
     <string name="jewelry_store">Jewelry store</string>
     <string name="liquor_store">Wine shop</string>
@@ -90,6 +91,7 @@
     <string name="stadium">Sports ground</string>
     <string name="bus_station">Bus stop</string>
     <string name="train_station">Railway station</string>
+    <string name="subway_station">Subway/metro station</string>
     <string name="light_rail_station">Tram/light-rail station</string>
     <string name="lodging">Lodging (accommodation)</string>
     <string name="travel_agency">Travel agency</string>

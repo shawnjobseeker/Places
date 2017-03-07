@@ -1,5 +1,7 @@
 package org.example.udprojects;
 
+import android.content.Context;
+
 import com.google.android.gms.maps.model.LatLng;
 
 
@@ -23,7 +25,7 @@ public class DistanceFinder {
 
     private CardFragmentInterface fragment;
     private ApiInterface api;
-    private String origin, destination;
+    private String origin, destination, units;
     public static final String WALKING = "walking";
     public static final String CYCLING = "bicycling";
     public static final String DRIVING = "driving";
@@ -34,11 +36,12 @@ public class DistanceFinder {
         this.fragment = fragment;
         this.origin = origin.latitude + "," + origin.longitude;
         this.destination = destination.latitude + "," + destination.longitude;
+        this.units = fragment.getActivity().getPreferences(Context.MODE_PRIVATE).getString("directions_units", "metric");
     }
     public void getDistances() {
         String[] modes = new String[]{WALKING, CYCLING, DRIVING, TRANSIT};
         for (String mode : modes)
-        api.getDirection(origin, destination, mode, fragment.getLocale().getLanguage(), API_KEY).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
+        api.getDirection(origin, destination, mode, units, fragment.getLocale().getLanguage(), API_KEY).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DistanceObserver(mode));
     }
     private class DistanceObserver implements Observer<Direction> {

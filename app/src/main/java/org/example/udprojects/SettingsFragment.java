@@ -58,6 +58,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         SharedPreferences prefs = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("presenter_radius", rad);
+        editor.putString("directions_units", (units.getSelectedItem().equals(getString(R.string.mi))) ? "imperial" : "metric");
         if (keywords.getText().length() == 0)
             editor.putString("presenter_keywords", null);
         else
